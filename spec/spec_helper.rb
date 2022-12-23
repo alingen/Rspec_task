@@ -93,4 +93,7 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+  config.after(:suite) do
+    FileUtils.rm_rf(ActiveStorage::Blob.service.root) 
+  end
 end
